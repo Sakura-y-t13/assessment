@@ -25,15 +25,31 @@ assessmentButton.onclick=()=>{
     console.log(userName);
     //診断結果表示エリアの作成
     resultDivided.innerText=' '; //いったん診断結果表示エリアを空にする
-    const header=document.createElement('h3'); //まずh3の見出しを作成
+    
+    // headerDivided の作成
+    const headerDivided = document.createElement('div');
+    headerDivided.setAttribute('class', 'card-header');
+    headerDivided.innerText = '診断結果';
 
-    header.innerText='診断結果';
-    resultDivided.appendChild(header);//div要素を親としてh3の見出しを子として追加する
+    // bodyDivided の作成
+    const bodyDivided = document.createElement('div');
+    bodyDivided.setAttribute('class', 'card-body');
 
-    const paragraph=document.createElement('p');
-    const result=assessment(userName);
-    paragraph.innerText=result;
-    resultDivided.appendChild(paragraph);
+    const paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'card-text');
+    const result = assessment(userName);
+    paragraph.innerText = result;
+    bodyDivided.appendChild(paragraph);
+
+    // resultDivided に Bootstrap のスタイルを適用する
+    resultDivided.setAttribute('class', 'card');
+    resultDivided.setAttribute('style', 'max-width: 700px;')
+
+    // headerDivided と bodyDivided を resultDivided に差し込む
+    resultDivided.appendChild(headerDivided);
+    resultDivided.appendChild(bodyDivided);
+      
+    
     //TODOツイートエリアの作成
     tweetDivided.innerText='';
     const anchor=document.createElement('a');
