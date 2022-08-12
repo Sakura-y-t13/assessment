@@ -41,7 +41,7 @@ assessmentButton.onclick=()=>{
     paragraph.innerText = result;
     bodyDivided.appendChild(paragraph);
 
-    // resultDivided に Bootstrap のスタイルを適用する
+    // resultDivided に Bootstrap のスタイルを適用
     resultDivided.setAttribute('class', 'card');
     resultDivided.setAttribute('style', 'max-width: 700px;')
 
